@@ -194,7 +194,8 @@
 
       setTimeout(() => {
         let html = messageElement.innerHTML;
-        html = html.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
+        // Remove excessive breaks (3+) but preserve double breaks for paragraphs
+        html = html.replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
         html = html.trim();
         messageElement.innerHTML = html;
       }, 100);
